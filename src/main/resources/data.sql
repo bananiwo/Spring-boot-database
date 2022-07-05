@@ -32,7 +32,7 @@ INSERT INTO ITEM_LEASED (name, unit_cost, area) VALUES ('property8', 3.1, 327.12
 -- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (3, 2, 3, 150.34, '2002-2-5', '2003-7-10');
 -- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (4, 3, 5, 3500.90, '2007-3-5', '2011-11-20');
 
-INSERT INTO RESERVATION (renter_id, cost) VALUES (1, 1600);
-INSERT INTO RESERVATION (renter_id, cost) VALUES (1, 2250.30);
-INSERT INTO RESERVATION (renter_id, cost) VALUES (2, 150.34);
-INSERT INTO RESERVATION (renter_id, cost) VALUES (3,3500.90);
+INSERT INTO RESERVATION (tenant_id, cost) VALUES (1, 1600);
+INSERT INTO RESERVATION (tenant_id, cost) VALUES (1, 2250.30);
+INSERT INTO RESERVATION (tenant_id, cost) VALUES (2, 150.34);
+INSERT INTO RESERVATION (tenant_id, cost) VALUES (3,3500.90);

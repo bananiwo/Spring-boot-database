@@ -23,15 +23,15 @@ CREATE TABLE ITEM_LEASED (
 
 CREATE TABLE RESERVATION (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    renter_id BIGINT NOT NULL,
+    tenant_id BIGINT NOT NULL,
     cost DOUBLE NOT NULL
 --     renter_id BIGINT FOREIGN KEY REFERENCES renter(id),
---     tenant_id BIGINT FOREIGN KEY REFERENCES tenant(id),
+-- renter_id BIGINT FOREIGN KEY REFERENCES tenant(id),
 --     item_leased_id BIGINT FOREIGN KEY REFERENCES item_leased(id),
 --     lease_start DATE NOT NULL
 --     lease_end DATE NOT NULL
 );
 
 ALTER TABLE RESERVATION
-    ADD CONSTRAINT reservation_renter_id
-    FOREIGN KEY (renter_id) REFERENCES renter(id)
+    ADD CONSTRAINT reservation_tenant_id
+    FOREIGN KEY (tenant_id) REFERENCES tenant(id)

@@ -16,14 +16,14 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Renter {
+public class Tenant {
 
     @Id
     private long id;
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "renter_id")
+    @JoinColumn(name = "tenant_id")
     private List<Reservation> reservations;
 
 }
