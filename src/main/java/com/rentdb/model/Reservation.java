@@ -19,6 +19,8 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "renter_id")
+    private long renterId;
     @Column(name = "tenant_id")
     private long tenantId;
     @Column(name = "item_leased_id")
