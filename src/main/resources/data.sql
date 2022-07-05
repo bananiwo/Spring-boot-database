@@ -27,12 +27,12 @@ INSERT INTO ITEM_LEASED (name, unit_cost, area) VALUES ('property6', 23.1, 12.4)
 INSERT INTO ITEM_LEASED (name, unit_cost, area) VALUES ('property7', 25.1, 65.4);
 INSERT INTO ITEM_LEASED (name, unit_cost, area) VALUES ('property8', 3.1, 327.12);
 
--- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (1, 1, 1, 1500, '2002-3-5', '2003-3-6');
+-- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (1, 1, 1, 1500,    '2002-3-5', '2003-3-6');
 -- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (2, 1, 1, 2250.30, '2003-3-6', '2003-8-25');
--- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (3, 2, 3, 150.34, '2002-2-5', '2003-7-10');
+-- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (3, 2, 3, 150.34,  '2002-2-5', '2003-7-10');
 -- INSERT INTO RESERVATION (renter_id, tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (4, 3, 5, 3500.90, '2007-3-5', '2011-11-20');
 
-INSERT INTO RESERVATION (tenant_id, cost) VALUES (1, 1600);
-INSERT INTO RESERVATION (tenant_id, cost) VALUES (1, 2250.30);
-INSERT INTO RESERVATION (tenant_id, cost) VALUES (2, 150.34);
-INSERT INTO RESERVATION (tenant_id, cost) VALUES (3,3500.90);
+INSERT INTO RESERVATION (tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (1, 1, 1600,    '2002-03-05', '2003-03-06');
+INSERT INTO RESERVATION (tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (1, 1, 2250.30, '2003-03-06', '2003-08-25');
+INSERT INTO RESERVATION (tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (2, 3, 150.34,  '2002-02-05', '2003-07-10');
+INSERT INTO RESERVATION (tenant_id, item_leased_id, cost, lease_start, lease_end) VALUES (3, 2,3500.90,  '2007-03-05', '2011-11-20');

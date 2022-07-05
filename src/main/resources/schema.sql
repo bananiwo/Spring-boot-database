@@ -24,12 +24,12 @@ CREATE TABLE ITEM_LEASED (
 CREATE TABLE RESERVATION (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     tenant_id BIGINT NOT NULL,
-    cost DOUBLE NOT NULL
+    item_leased_id BIGINT NOT NULL,
+    cost DOUBLE NOT NULL,
+    lease_start DATE NOT NULL,
+    lease_end DATE NOT NULL
 --     renter_id BIGINT FOREIGN KEY REFERENCES renter(id),
 -- renter_id BIGINT FOREIGN KEY REFERENCES tenant(id),
---     item_leased_id BIGINT FOREIGN KEY REFERENCES item_leased(id),
---     lease_start DATE NOT NULL
---     lease_end DATE NOT NULL
 );
 
 ALTER TABLE RESERVATION
