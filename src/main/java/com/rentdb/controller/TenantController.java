@@ -1,5 +1,6 @@
 package com.rentdb.controller;
 
+import com.rentdb.model.Reservation;
 import com.rentdb.model.Tenant;
 import com.rentdb.service.TenantService;
 import lombok.RequiredArgsConstructor;
@@ -23,5 +24,10 @@ public class TenantController {
     @GetMapping("/tenants/{tenantId}")
     public Tenant getTenants(@PathVariable long tenantId) {
         return tenantService.getTenants(tenantId);
+    }
+
+    @GetMapping("/tenants/name/{tenantName}/reservations")
+    public List<Reservation> getReservationsByTenantName(@PathVariable String tenantName) {
+        return tenantService.getReservationsByTenantName(tenantName);
     }
 }

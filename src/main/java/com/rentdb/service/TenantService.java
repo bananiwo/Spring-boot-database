@@ -1,5 +1,6 @@
 package com.rentdb.service;
 
+import com.rentdb.model.Reservation;
 import com.rentdb.model.Tenant;
 import com.rentdb.repository.TenantRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,9 @@ public class TenantService {
 
     public Tenant getTenants(long tenantId) {
         return tenantRepository.findById(tenantId).get();
+    }
+
+    public List<Reservation> getReservationsByTenantName(String tenantName) {
+        return tenantRepository.findReservationByTenantName(tenantName);
     }
 }

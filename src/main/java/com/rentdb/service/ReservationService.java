@@ -38,4 +38,8 @@ public class ReservationService {
     public List<Reservation> getReservations() {
         return reservationRepository.findAll();
     }
+
+    public Reservation editReservation(Reservation reservation) {
+        return reservationRepository.save(reservation);
+    }
 }
