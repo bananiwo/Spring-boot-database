@@ -14,7 +14,7 @@ public class TenantService {
     private final TenantRepository tenantRepository;
 
     public List<Tenant> getTenants() {
-        return tenantRepository.findAll();
+        return tenantRepository.findAllTenants();
     }
 
     public Tenant getTenants(long tenantId) {
