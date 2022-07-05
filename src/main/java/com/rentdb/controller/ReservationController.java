@@ -16,6 +16,11 @@ public class ReservationController {
     @GetMapping("/reservations")
     public List<Reservation> getReservations() { return reservationService.getReservations(); }
 
+    @GetMapping("/reservations/items_leased/{itemId}")
+    public List<Reservation> findReservationByItemId(@PathVariable long itemId) {
+        return  reservationService.findReservationByItemId(itemId);
+    }
+
     @PostMapping("/reservations")
     public Reservation addReservation(@RequestBody Reservation reservation) {
         return reservationService.addReservation(reservation);
@@ -25,4 +30,5 @@ public class ReservationController {
     public Reservation editReservation(@RequestBody Reservation reservation) {
         return reservationService.editReservation(reservation);
     }
+
 }

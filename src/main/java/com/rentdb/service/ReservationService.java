@@ -42,4 +42,8 @@ public class ReservationService {
     public Reservation editReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
     }
+
+    public List<Reservation> findReservationByItemId(long itemId) {
+        return reservationRepository.findReservationByItemId(itemId);
+    }
 }
