@@ -1,0 +1,1 @@
+javac -cp jars/* src/main/java/com/rentdb/controller/*.java src/main/java/com/rentdb/model/*.java src/main/java/com/rentdb/repository/*.java src/main/java/com/rentdb/service/*.java src/main/java/com/rentdb/RentdbApplication.java
