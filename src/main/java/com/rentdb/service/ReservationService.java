@@ -48,37 +48,27 @@ public class ReservationService {
 
         // validate leastStart and leaseEnd if present
         if(leaseStart != null && leaseEnd != null){
-            if(ChronoUnit.DAYS.between(leaseStart, leaseEnd) < 1) {
-                throw new IllegalArgumentException("Lease is shorter than 1 day");
-            }
-            if(isDateTaken(reservation, leaseStart, leaseEnd)){
-                throw new IllegalArgumentException("Item of reservation is already taken during this time");
-            }
+            validateTimePeriod(reservation, leaseStart, leaseEnd);
             reservation.setLeaseStart(leaseStart);
             reservation.setLeaseEnd(leaseEnd);
         }
         else if(leaseStart != null){
-            if(ChronoUnit.DAYS.between(leaseStart, reservation.getLeaseEnd()) < 1) {
-                throw new IllegalArgumentException("Lease is shorter than 1 day");
-            }
-            if(isDateTaken(reservation, leaseStart, reservation.getLeaseEnd())) {
-                throw new IllegalArgumentException("Item of reservation is already taken during this time");
-            }
+            validateTimePeriod(reservation, leaseStart,  reservation.getLeaseEnd());
             reservation.setLeaseStart(leaseStart);
         }
         else if(leaseEnd != null) {
-            if( ChronoUnit.DAYS.between(reservation.getLeaseStart(), leaseEnd) <1) {
-                throw new IllegalArgumentException("Lease is shorter than 1 day");
-            }
-            if(isDateTaken(reservation, reservation.getLeaseStart(), leaseEnd)){
-                throw new IllegalArgumentException("Item of reservation is already taken during this time");
-            }
+            validateTimePeriod(reservation, reservation.getLeaseStart(), leaseEnd);
             reservation.setLeaseEnd(leaseEnd);
         }
     }
 
-    boolean ifDatesOverlap(LocalDate firstStart, LocalDate firstEnd, LocalDate secondStart, LocalDate secondEnd) {
-        return firstStart.isBefore(secondEnd) && firstEnd.isAfter(secondStart);
+    public void validateTimePeriod(Reservation reservation, LocalDate start, LocalDate end) {
+        if(ChronoUnit.DAYS.between(start, end) < 1) {
+            throw new IllegalArgumentException("Lease is shorter than 1 day");
+        }
+        if(isDateTaken(reservation, start, end)){
+            throw new IllegalArgumentException("Item of reservation is already taken during this time");
+        }
     }
 
     boolean isDateTaken(Reservation reservation, LocalDate leaseStart, LocalDate leaseEnd) {
@@ -95,5 +85,9 @@ public class ReservationService {
             }
         }
         return isTaken;
+    }
+
+    boolean ifDatesOverlap(LocalDate firstStart, LocalDate firstEnd, LocalDate secondStart, LocalDate secondEnd) {
+        return firstStart.isBefore(secondEnd) && firstEnd.isAfter(secondStart);
     }
 }
