@@ -1,7 +1,6 @@
 package com.rentdb.controller;
 
 import com.rentdb.model.Reservation;
-import com.rentdb.model.Tenant;
 import com.rentdb.service.TenantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,16 +14,6 @@ import java.util.List;
 public class TenantController {
 
     private final TenantService tenantService;
-
-    @GetMapping("/tenants")
-    public List<Tenant> getTenants() {
-        return tenantService.getTenants();
-    }
-
-    @GetMapping("/tenants/{tenantId}")
-    public Tenant getTenants(@PathVariable long tenantId) {
-        return tenantService.getTenants(tenantId);
-    }
 
     @GetMapping("/tenants/name/{tenantName}/reservations")
     public List<Reservation> getReservationsByTenantName(@PathVariable String tenantName) {

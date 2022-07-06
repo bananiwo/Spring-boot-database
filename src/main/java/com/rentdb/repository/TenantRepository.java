@@ -11,9 +11,6 @@ import java.util.List;
 @Repository
 public interface TenantRepository extends JpaRepository<Tenant, Long> {
 
-    @Query("Select t from Tenant t" + " left join fetch t.reservations")
-    List<Tenant> findAllTenants();
-
     @Query("SELECT r FROM Reservation r JOIN Tenant t ON r.tenantId=t.id WHERE t.name=?1")
     List<Reservation> findReservationByTenantName(String tenantName);
 }
