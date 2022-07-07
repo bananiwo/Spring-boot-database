@@ -1,0 +1,13 @@
+Dodanie nowej rezerwacji:
+curl -X POST -H "Content-Type: application/json" -d '{"renterId": "4", "tenantId": "3", "itemId": "2", "cost": "500.20", "leaseStart": "2022-10-10", "leaseEnd": "2023-01-01"}' localhost:8080/reservations
+
+Modyfikacja rezerwacji:
+curl -X PUT localhost:8080/reservations/2?cost=10&leaseStart=2003-03-12&leaseEnd=2003-03-13
+curl -X PUT localhost:8080/reservations/2?leaseEnd=2003-03-14
+curl -X PUT localhost:8080/reservations/2?cost=150.55
+
+Pobranie listy rezerwacji dla najemcy po nazwie:
+curl localhost:8080/tenants/name/tenant1/reservations
+
+Pobranie listy rezerwacji dla danego obiektu:
+curl localhost:8080/reservations/items_leased/1
